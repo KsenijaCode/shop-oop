@@ -1,8 +1,23 @@
 export class Layout {
-    constructor() {}
+    constructor() {
+        this.render();
+    }
 
     header() {
-        const HTML = '<header>HEADER</header>';
+        const HTML = `
+            <header class="container">
+                <div class="row">
+                    <div class="col">
+                        <img src="#" alt="Logo">
+                        <nav>
+                            <a href="./">Home</a>
+                            <a href="./services">Services</a>
+                            <a href="./team">Team</a>
+                            <a href="./contact-us">Contact Us</a>
+                        </nav>
+                    </div>
+                </div>
+            </header>`;
         return HTML;
     }
 
@@ -12,7 +27,7 @@ export class Layout {
     }
 
     footer() {
-        const HTML = '<footer>FOOTER</footer>';
+        const HTML = '<footer>&copy; Copyright 2024</footer>';
         return HTML;
     }
 
