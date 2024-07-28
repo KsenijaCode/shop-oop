@@ -24,6 +24,30 @@
     width: 25%;
 }
 
+.visible-block {
+    display: block;
+}
+
+.visible-inline-block {
+    display: inline-block;
+}
+
+.visible-flex {
+    display: flex;
+}
+
+.visible-grid {
+    display: grid;
+}
+
+.visible-table {
+    display: table;
+}
+
+.hidden {
+
+}
+
 @media (min-width: 36rem) {
     .container > .row {
         width: 30rem;
@@ -47,3 +71,11 @@
         width: 24rem;
     }
 }
+
+
+
+
+
+
+
+
