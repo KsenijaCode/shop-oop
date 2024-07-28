@@ -1,3 +1,19 @@
+:root {
+    --c0: 0;
+    --c1: calc(100% / 12);
+    --c2: calc(100% / 12);
+    --c3: calc(100% / 12);
+    --c4: calc(100% / 12);
+    --c5: calc(100% / 12);
+    --c6: calc(100% / 12);
+    --c7: calc(100% / 12);
+    --c8: calc(100% / 12);
+    --c9: calc(100% / 12);
+    --c10: calc(100% / 12);
+    --c11: calc(100% / 12);
+    --c12: 100%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
