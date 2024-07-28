@@ -7,7 +7,7 @@ export class Layout {
         const HTML = `
             <header class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12">
                         <img src="#" alt="Logo">
                         <nav>
                             <a href="./">Home</a>
@@ -22,12 +22,26 @@ export class Layout {
     }
 
     main() {
-        const HTML = '<main>MAIN</main>';
+        const HTML = `
+            <main class="container">
+                <section class="row">
+                    <div class="col-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quibusdam omnis reprehenderit eveniet officiis ea blanditiis, iure deserunt adipisci? Laborum animi expedita iusto, illo rem consequatur. Voluptatibus eveniet eius laboriosam.</div>
+                </section>
+                <section class="row">
+                    <div class="col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quibusdam omnis reprehenderit eveniet officiis ea blanditiis, iure deserunt adipisci? Laborum animi expedita iusto, illo rem consequatur. Voluptatibus eveniet eius laboriosam.</div>
+                    <div class="col-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quibusdam omnis reprehenderit eveniet officiis ea blanditiis, iure deserunt adipisci? Laborum animi expedita iusto, illo rem consequatur. Voluptatibus eveniet eius laboriosam.</div>
+                </section>
+                <section class="row">
+                    <div class="col-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quibusdam omnis reprehenderit eveniet officiis ea blanditiis, iure deserunt adipisci? Laborum animi expedita iusto, illo rem consequatur. Voluptatibus eveniet eius laboriosam.</div>
+                    <div class="col-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quibusdam omnis reprehenderit eveniet officiis ea blanditiis, iure deserunt adipisci? Laborum animi expedita iusto, illo rem consequatur. Voluptatibus eveniet eius laboriosam.</div>
+                    <div class="col-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quibusdam omnis reprehenderit eveniet officiis ea blanditiis, iure deserunt adipisci? Laborum animi expedita iusto, illo rem consequatur. Voluptatibus eveniet eius laboriosam.</div>        
+                </section>
+            </main>`;
         return HTML;
     }
 
     footer() {
-        const HTML = '<footer>&copy; Copyright 2024</footer>';
+        const HTML = '<footer class="container">&copy; Copyright 2024</footer>';
         return HTML;
     }
 

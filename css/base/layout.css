@@ -1,6 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 3rem;
     padding: 5rem 1rem;
 }
@@ -10,6 +11,39 @@
     flex-wrap: wrap;
 }
 
-.container > .row > .col {
+.container > .row > .col-12 {
     width: 100%;
+    padding: 0 1rem;
+}
+
+.container>.row>.col-6 {
+    width: 50%;
+}
+
+.container>.row>.col-3 {
+    width: 25%;
+}
+
+@media (min-width: 36rem) {
+    .container > .row {
+        width: 30rem;
+    }
+}
+
+@media (min-width: 48rem) {
+    .container>.row {
+        width: 42rem;
+    }
+}
+
+@media (min-width: 30rem) {
+    .container>.row {
+        width: 24rem;
+    }
+}
+
+@media (min-width: 30rem) {
+    .container>.row {
+        width: 24rem;
+    }
 }
