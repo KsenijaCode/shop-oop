@@ -1,57 +1,106 @@
+import { PageContact } from "./PageContact.js";
+import { PageHome } from "./PageHome.js";
+import { PageServices } from "./PageServices.js";
+import { PageShopAddNew } from "./PageShopAddNew.js";
+import { PageShopList } from "./PageShopList.js";
+import { PageTeam } from "./PageTeam.js";
+
 export class Layout {
     constructor() {
+        this.pagesData = [
+            {
+                text: 'Home',
+                content: PageHome,
+                background: 'pink',
+                title: 'Home',
+            },
+            {
+                text: 'Shop',
+                content: PageShopList,
+                background: 'white',
+                title: 'Your shopping list',
+            },
+            {
+                text: 'Add',
+                extraMenuStyle: 'menu-btn',
+                content: PageShopAddNew,
+                background: 'white',
+                title: 'Add new item to your shopping list',
+            },
+            // {
+            //     text: 'Team',
+            //     content: PageTeam,
+            //     background: 'grey',
+            //     title: 'Our team'
+            // },
+            // {
+            //     text: 'Services',
+            //     content: PageServices,
+            //     background: 'white',
+            //     title: 'Our services'
+            // },
+            // {
+            //     text: 'Contact us',
+            //     content: PageContact,
+            //     background: 'aquamarine',
+            //     title: 'Contact us',
+            // },
+        ];
+        this.DOM = document.getElementById('app');
+        this.mainDOM = null;
+
         this.render();
+        this.headerEvents();
+
+        new this.pagesData[1].content(this.mainDOM);
     }
 
     header() {
-        const HTML = `
-            <header class="container">
+        let navHTML = '';
+
+        for (const link of this.pagesData) {
+            const style = link.extraMenuStyle ? link.extraMenuStyle : '';
+            navHTML += `<button class="link ${style}">${link.text}</button>`;
+        }
+
+        return `
+            <header class="container main-header">
                 <div class="row">
-                    <div class="col-12">
-                        <img src="#" alt="Logo">
-                        <nav class="hidden visible-sm-flex hidden-md visible-lg-grid hidden-xl visible-xxl-inline-block">
-                            <a href="./">Home</a>
-                            <a href="./services">Services</a>
-                            <a href="./team">Team</a>
-                            <a href="./contact-us">Contact Us</a>
+                    <div class="col-12 main-header-content">
+                        <img class="logo" src="./img/logo.png" alt="Logo">
+                        <nav class="main-nav">
+                            ${navHTML}
                         </nav>
                     </div>
                 </div>
             </header>`;
-        return HTML;
+    }
+
+    headerEvents() {
+        const buttonsDOM = document.querySelectorAll('.main-header-content button');
+        this.mainDOM = document.querySelector('main.container');
+
+        for (let i = 0; i < buttonsDOM.length; i++) {
+            buttonsDOM[i].addEventListener('click', () => {
+                const pageClass = this.pagesData[i].content;
+                new pageClass(this.mainDOM);
+            });
+        }
     }
 
     main() {
-        const HTML = `
+        return `
             <main class="container">
-                <section class="row">
-                    <h1 class="col-12 main-title">First Turn</h1>
-                </section>
-                <section class="row">
-                    <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-2 col-xxl-1" style="background: yellow;">A</div>
-                    <div class="col-1 m-1 m-sm-3 col-md-2 m-md-4 col-lg-4 m-xl-6 col-xxl-1 m-xxl-10" style="background: orange;">B</div>
-                </section>
-                <section class="row">
-                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-12">Pirmas posukis</div>
-                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">Pirmas posukis</div>
-                    <div class="col-6 col-lg-4 col-xl-3">Pirmas posukis</div>
-                    <div class="col-6 col-lg-4 col-xl-3">Pirmas posukis</div>
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-1">Pirmas posukis</div>
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">Pirmas posukis</div>
-                </section>
+                EMPTY CONTENT
             </main>`;
-        return HTML;
     }
 
     footer() {
-        const HTML = '<footer class="container">&copy; Copyright 2024</footer>';
-        return HTML;
+        return '<footer class="container">&copy; Copyright 2024</footer>';
     }
 
     render() {
-        const DOM = document.getElementById('app');
         const HTML = this.header() + this.main() + this.footer();
-
-        DOM.insertAdjacentHTML('beforeend', HTML);
+        this.DOM.insertAdjacentHTML('beforeend', HTML);
     }
 }
